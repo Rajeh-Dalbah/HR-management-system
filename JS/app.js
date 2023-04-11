@@ -12,7 +12,7 @@ function Employees(id, fullName, department, level, imgUrl, salary) {
   this.fullName = fullName;
   this.department = department;
   this.level = level;
-  this.imgUrl = `../assets/${imgUrl}.jpg`;
+  this.imgUrl = `./assets/${imgUrl}.jpg`;
   this.salary = salary;
 
 }
