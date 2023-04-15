@@ -29,13 +29,65 @@
     </header>
     <main id="main">
      
-     
-
-     
-     
+        <section class="tableSec">
+            <h2>  Employees : </h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Department Name</th>
+                    <th>#of Employees</th>
+                   <th>Total Salary</th>
+                     <th>Average salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div class="divTable">
+                <tr>
+                  <td>Administration</td>
+                  <td id="adminCount"></td>
+                  <td id="totalSalaryA"></td> 
+                  <td id="a"></td>
+                </tr>
+                <tr>
+                    <td>Marketing</td>
+                    <td id="marketingCount"></td>
+                     <td id="totalSalaryB"></td>
+                     <td id="m"></td>
+                   
+                </tr>
+                <tr>
+                    <td>Development</td>
+                    <td id="developCount"></td>
+                    <td id="totalSalaryC"></td>
+                    <td id="d"></td>
+                    
+                </tr>
+              
+                <tr>
+                    <td>Finance</td>
+                    <td id="financeCount"></td>
+                    <td id="totalSalaryD"></td>
+                    <td id="f"></td>
+                    
+                </tr>  
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td id="employeescount"></td>
+                    <td id="total"></td>
+                    <td id="t"></td>
+                    
+                </tr>
+                </tfoot>
+               </div>
+            </table>           
+            
+        </section>
   
     </main>
     <footer>
+       
         <section>
             <img class="logoFooter" src="./assets/hr.png">
         </section>
@@ -50,7 +102,17 @@
                 <i class="fa-brands fa-instagram"></i>
         </div>
         </div>
+        
+        <table>
+            <tr>
+                <th>#of employees</th>
+                <th>avg salary</th>
+            </tr>
+            <tr></tr>
+        </table>
+        
     </footer>
+    <script src="./JS/accounting.js"></script>
 
     </body>
 </html>

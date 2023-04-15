@@ -3,6 +3,8 @@
 let empForm = document.getElementById('empForm');
 let empSec = document.getElementById('empSec');
 empSec.style.display = "inline";
+let allEmplo = [];
+checkLocalAndPush();
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -43,35 +45,30 @@ Employees.prototype.getSalary = function () {
   return netSalary;
 }
 
-// Employees.prototype.renderEmployee = function () {
-//   document.write(`<h6>${this.fullName} : ${this.getSalary()}</h6>`);
+function render  (empFromLS) {
+  empSec.innerHTML="";
+  for (let i = 0; i < empFromLS.length; i++){
+  let div1 = document.createElement('div');
+let img = document.createElement('img');
+let div2 = document.createElement('div');
+let h5 = document.createElement('h5');
+let p = document.createElement('p');
 
+       div1.setAttribute("class","card")
+       img.setAttribute("class","img")
+       div1.setAttribute
+      div1.appendChild(img);
+      h5.textContent=` Name: ${empFromLS[i].fullName}  ID:${empFromLS[i].employeeId}  Department:${empFromLS[i].department} Level:${empFromLS[i].level} Salary:${empFromLS[i].salary}`;
+      div2.setAttribute("class","container");
+      div2.appendChild(h5);
+      div1.appendChild(div2);
+      
+     
 
-// }
-
-Employees.prototype.render = function () {
-  var div1 = document.createElement('div');
-  var img = document.createElement('img');
-  var div2 = document.createElement('div');
-  var h5 = document.createElement('h5');
-
-
-  div1.setAttribute("class", "card")
-  img.setAttribute("class", "img")
-  div1.setAttribute
-  div1.appendChild(img);
-  h5.textContent = ` Name: ${this.fullName}  ID:${this.employeeId}  Department:${this.department} 
-                 Level:${this.level}
-                 Salary:${this.salary}`;
-  div2.setAttribute("class", "container");
-  div2.appendChild(h5);
-  div1.appendChild(div2);
-
-
-
-  img.setAttribute('src', this.imgUrl);
-  empSec.appendChild(div1);
-
+      img.setAttribute('src',empFromLS[i].imgUrl);
+     empSec.appendChild(div1);
+     
+  }
 }
 
 var generatID = (function (num) {
@@ -89,8 +86,36 @@ function handelSubmit(event) {
   let imgUrl = event.target.img.value;
   let newemp = new Employees(generatID(), fullName, department, level, imgUrl);
   let salary1 = newemp.getSalary();
-  newemp.render();
+  allEmplo.push(newemp);
+  let jsonArr = toJSON();
+  saveToLocalS(jsonArr);
+  render(readFromLocalS());
 
 }
 
+function checkLocalAndPush() {
+  if (allEmplo.length == 0) {
+      let arr = readFromLocalS();
+      if (arr.length != 0) {
+          allEmplo = arr;
+      }
+  }
+}
+function readFromLocalS() {
+  let jsonArr = localStorage.getItem('employees');
+  let arr = JSON.parse(jsonArr);
+  if (arr !== null) {
+      return arr;
+  } else {
+      return [];
+  }
+}
+function toJSON() {
+  let jsonArray = JSON.stringify(allEmplo);
+  return jsonArray;
+}
+function saveToLocalS(jsonArray) {
+  localStorage.setItem('employees', jsonArray)
+}
+render(readFromLocalS());
 empForm.addEventListener('submit', handelSubmit);
