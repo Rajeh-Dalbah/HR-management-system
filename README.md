@@ -13,3 +13,5 @@
 ### Omar Zaid
 ### Rana Saleh
 ### Hadi Ahmad
+
+## in lab 09, i used the localStorage to save my work in the project, and i built a table to account the count of employees and salary and avarager salary, so i used the localStorage to saving values in it.

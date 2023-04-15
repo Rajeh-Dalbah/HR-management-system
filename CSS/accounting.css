@@ -5,7 +5,7 @@
 
 body{
     display: flex;
-    height: 3000px;
+    height: 1000px;
     flex-direction: column;
     background-color:whitesmoke;
 }
@@ -61,14 +61,54 @@ a:active {
 color : darkslateblue;
 }
 
-footer {
+/* footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 80px;
     background-color: rgb(87, 87, 87);
+    z-index: 999;
+  } */
+  
+  footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px; /* adjust the height as needed */
+  background-color: #f2f2f2;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(87, 87, 87);
+  
+}
+
+.tableSec{
+    font-size: 40px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+table {
+    font-size: 25px;
+    border-collapse: collapse; 
+    width: 100%;
   }
   
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: rgb(178, 174, 174); 
+  }
+  
+tfoot{
+    background-color: aqua;
+    color: black;
+}
+
+
 .logoFooter{
     width: 90px;
     margin: 15px ;
@@ -92,3 +132,17 @@ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: white;
     margin-right: 30px;
 }
+
+      
+table {
+    margin-left: auto;
+margin-right: auto;
+margin-top: 10%;
+width: 50%;
+text-align: center;
+
+
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
